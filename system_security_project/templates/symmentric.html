@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Encryption/Decryption</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Symmentric.css') }}">
+    <style>
+  
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <form action="/home" method="post">
+            <input type="submit" value="HOME_PAGE">
+        </form>
+
+        <h1> Symmentric Text Encryption/Decryption</h1>
+        <h3> In Symmentric  we use only single key for Encryption/ Decryption   so the frist step is to generate a secret key<h3>
+        
+        <form action="/generate_key_S" method="post">
+            <input type="submit" value="Generate Symmentric_key">
+        </form>
+        <div class="output">
+            <strong>generated key:</strong>
+            <pre>{{ output }}</pre>
+        </div>
+
+        <h4>THE GENERATED KEY WILL BE LOST  ONCE THE PAGE  RELOD'S ,SO SAVE THE KEY  AND USE SAME KEYS FOR ENCREPTION/DECRYPTION <h4>
+        
+        <form action="Encrypt_Decrypt_S" method="post">
+            <label for="action">Select Action:</label>
+            <select name="action" id="action" >
+                <option value="Encrypt">Encrypt</option>
+                <option value="Decrypt">Decrypt</option>
+            </select>
+            <label for="input_text">Input Text:</label>
+            <textarea name="input_text" id="input_text" rows="6" placeholder="Enter text" ></textarea>
+            <input type="text" name="secret_key" id="secret_key" placeholder="Enter Key">
+            <input type="submit" value="Process">
+        </form>
+
+        <div class="output">
+            <strong>Output:</strong>
+            <pre>{{ output_text }}</pre>
+        </div>
+    </div>
+
+    </div>
+    
+   
+</body>
+</html>
